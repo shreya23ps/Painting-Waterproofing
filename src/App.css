@@ -1,38 +1,669 @@
-.App {
-  text-align: center;
+/* General Styles */
+:root {
+  --primary: #0d6efd;
+  --secondary: #6c757d;
+  --warning: #ffc107;
+  --light: #f8f9fa;
+  --dark: #212529;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navigation */
+.navbar {
+  transition: all 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d') center/cover no-repeat;
+  color: white;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.hero-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.hero-shapes .shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.hero-shapes .shape-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+}
+
+.hero-shapes .shape-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -50px;
+}
+
+.hero-shapes .shape-3 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 30%;
+}
+
+.hero-image-container {
+  position: relative;
+  height: 500px;
+}
+
+.hero-main-image {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-secondary-image {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.trust-badges {
+  max-width: 600px;
+}
+
+.badge-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+}
+
+/* Services Section */
+.services-bg-overlay {
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(248, 249, 250, 1) 100%);
+  z-index: -1;
+}
+
+.service-category {
+  position: relative;
+  padding: 60px 0;
+}
+
+.service-image-container {
+  position: relative;
+  height: 400px;
+}
+
+.service-main-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s ease;
+  border-radius: 20px;
+}
+
+.service-badge {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 2;
+  font-size: 2.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.icon-box {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.icon-box:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.service-feature {
+  transition: transform 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.service-feature:hover {
+  transform: translateX(10px);
+  background: rgba(13, 110, 253, 0.05);
+}
+
+.feature-icon {
+  font-size: 1.3rem;
+  margin-top: 3px;
+}
+
+/* Gallery Section */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  height: 300px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-content {
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-content {
+  transform: translateY(0);
+}
+
+/* About Section */
+/* About Section Styles */
+.about-bg-overlay {
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.95) 0%, rgba(33, 37, 41, 1) 100%);
+  z-index: -1;
+}
+
+.about-image-container {
+  position: relative;
+  height: 600px;
+}
+
+.about-image-main {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.about-image-secondary {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.team-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3;
+  max-width: 250px;
+}
+
+.stats-card {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  max-width: 200px;
+}
+
+/* Timeline */
+.about-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.about-timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-year {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.timeline-content {
+  padding-bottom: 20px;
+}
+
+/* Values Cards */
+.value-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+.value-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Team Cards */
+.team-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary);
+}
+
+.team-card img {
+  transition: all 0.3s ease;
+  border: 3px solid rgba(13, 110, 253, 0.3);
+}
+
+.team-card:hover img {
+  border-color: var(--primary);
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Certifications */
+.certification-badge {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.certification-badge:hover {
+  background: rgba(13, 110, 253, 0.2) !important;
+  border-color: var(--primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .about-image-container {
+    height: 500px;
+    margin-top: 50px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .team-badge {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-image-container {
+    height: 400px;
+  }
+  
+  .stats-card {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-timeline {
+    padding-left: 25px;
+  }
+  
+  .timeline-year {
+    width: 35px;
+    height: 35px;
+    left: -25px;
+  }
+  
+  .team-card img {
+    width: 120px;
+  }
+}
+/* Testimonials */
+.testimonial-card {
+  background: white;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(13, 110, 253, 0.2);
+}
+
+.rating {
+  color: var(--warning);
+}
+
+/* FAQ */
+.faq-accordion .accordion-button {
+  font-weight: 600;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.faq-accordion .accordion-body {
+  padding: 1.5rem;
+}
+
+/* Quote Form */
+.quote-form-image {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.quote-form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+}
+
+.contact-shape {
+  width: 300px;
+  height: 300px;
+  background: rgba(13, 110, 253, 0.1);
+  border-radius: 50%;
+  top: -150px;
+  right: -150px;
+}
+
+/* Footer */
+.footer-shape {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 50%;
+  bottom: -200px;
+  left: -200px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* Success Modal */
+.success-animation {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 5;
+  stroke: #4CAF50;
+  stroke-miterlimit: 10;
+  box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 5;
+  stroke-miterlimit: 10;
+  stroke: #4CAF50;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0 0 0 100px rgba(76, 175, 80, 0);
+  }
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero-image-container {
+    height: 400px;
+  }
+  
+  .service-image-container {
+    height: 350px;
+  }
+  
+  .about-image-container {
+    height: 400px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 0;
+  }
+  
+  .hero-shapes .shape-1 {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .service-category {
+    padding: 40px 0;
+  }
+  
+  .gallery-item {
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .service-badge {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    top: -20px;
+    right: -20px;
+  }
+  
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 25px;
   }
 }
